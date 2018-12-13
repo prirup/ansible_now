@@ -1,19 +1,24 @@
 ---
-- name: GATHER INFORMATION FROM ROUTERS
+- name: show_commands
   hosts: cisco
+  gather_facts: false
   connection: network_cli
-  gather_facts: no
 
-# Collect all facts from the device
-- ios_facts:
-    gather_subset: all
+  tasks:
+    - name: gather_facts
+      ios_facts:
+        gather_subset:
+          - config
 
-# Collect only the config and default facts
-- ios_facts:
-    gather_subset:
-      - config
+      register: config_facts
 
-# Do not collect hardware facts
-- ios_facts:
-    gather_subset:
-      - "!hardware"
+    # By using the var.ansible_facts.dict_key format we can pull out the data we want from the variable
+    # Use the comma to seperate the data if you want more than one value out of the dictionary
+    - debug: var=config_facts.ansible_facts.ansible_net_hostname,config_facts.ansible_facts.ansible_net_model,config_facts.ansible_facts.ansible_net_serialnum,config_facts.ansible_facts.ansible_net_version
+
+    - name: save output to a file
+      copy:
+        # copy the value after the debug: var= to the content: "{{ <here> }}"
+        content: "{{ config_facts.ansible_facts.ansible_net_hostname,config_facts.ansible_facts.ansible_net_model,config_facts.ansible_facts.ansible_net_serialnum,config_facts.ansible_facts.ansible_net_version }}"
+        dest: "./docs/{{ inventory_hostname }}_get_facts.txt"
+
