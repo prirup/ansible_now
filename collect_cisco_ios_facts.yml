@@ -1,13 +1,20 @@
-# Collect all facts from the device
-- ios_facts:
-    gather_subset: all
+---
+- name: COLLECT INFORMATION FROM CISCO IOS DEVICES
+  hosts: cisco
+  connection: network_cli
+  gather_facts: no
 
-# Collect only the config and default facts
-- ios_facts:
-    gather_subset:
-      - config
+  tasks:
+    # Collect all facts from the device
+    - ios_facts:
+      gather_subset: all
 
-# Do not collect hardware facts
-- ios_facts:
-    gather_subset:
-      - "!hardware"
+    # Collect only the config and default facts
+    - ios_facts:
+      gather_subset:
+        - config
+
+    # Do not collect hardware facts
+    - ios_facts:
+      gather_subset:
+        - "!hardware"
