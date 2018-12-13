@@ -7,14 +7,14 @@
   tasks:
     # Collect all facts from the device
     - ios_facts:
-      gather_subset: all
+        gather_subset: all
 
     # Collect only the config and default facts
     - ios_facts:
-      gather_subset:
-        - config
+        gather_subset:
+          - config
 
     # Do not collect hardware facts
     - ios_facts:
-      gather_subset:
-        - "!hardware"
+        gather_subset:
+          - "!hardware"
