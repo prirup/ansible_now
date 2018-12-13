@@ -1,3 +1,9 @@
+---
+- name: GATHER INFORMATION FROM ROUTERS
+  hosts: cisco
+  connection: network_cli
+  gather_facts: no
+
 # Collect all facts from the device
 - ios_facts:
     gather_subset: all
