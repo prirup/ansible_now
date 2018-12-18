@@ -18,12 +18,12 @@
 
     - name: Create backup dir
       file:
-        path: "/tmp/backups/{{ inventory_hostname }}"
+        path: "/tmp/backups/{{ ansible_net_hostname }}"
         state: directory
         recurse: yes
 
     - name: Copy backup files into /tmp/backups/ (ios)
       copy:
         src: "{{ backup_ios_location.backup_path }}"
-        dest: "/tmp/backups/{{ inventory_hostname }}/{{ inventory_hostname }}.bck"
+        dest: "/tmp/backups/{{ ansible_net_hostname }}/{{ ansible_net_hostname }}.bck"
       when: ansible_network_os == 'ios'
