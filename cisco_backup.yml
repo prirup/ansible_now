@@ -27,3 +27,7 @@
         src: "{{ backup_ios_location.backup_path }}"
         dest: "/tmp/backups/{{ ansible_net_hostname }}/{{ ansible_net_hostname }}.bck"
       when: ansible_network_os == 'ios'
+  
+    - debug: var=inventory_hostname
+    - debug: var=ansible_hostname
+    - debug: var=hostvars
