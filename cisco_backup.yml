@@ -16,12 +16,14 @@
       when: ansible_network_os == 'ios'
 
     - name: Create backup dir
+      delegate_to: 127.0.0.1
       file:
         path: "/tmp/backups/{{ inventory_hostname }}"
         state: directory
         recurse: yes
 
     - name: Copy backup files into /tmp/backups/ (ios)
+      delegate_to: 127.0.0.1
       copy:
         src: "{{ backup_ios_location.backup_path }}"
         dest: "/tmp/backups/{{ inventory_hostname }}/{{ inventory_hostname }}.bck"
