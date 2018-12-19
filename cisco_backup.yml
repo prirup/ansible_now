@@ -1,5 +1,4 @@
 ---
-############ NOT WORKING YET#############
 - name: Backup Switch Configuration
   hosts: cisco
   gather_facts: false
@@ -16,19 +15,15 @@
       register: backup_ios_location
       when: ansible_network_os == 'ios'
 
-#     - name: Create backup dir
-#       file:
-#         path: "/tmp/backups/{{ ansible_net_hostname }}"
-#         state: directory
-#         recurse: yes
+    - name: Create backup dir
+      file:
+        path: "/tmp/backups/{{ inventory_hostname }}"
+        state: directory
+        recurse: yes
 
     - name: Copy backup files into /tmp/backups/ (ios)
       copy:
         src: "{{ backup_ios_location.backup_path }}"
-        dest: "/tmp/backups/sjc10bldge.bck"
+        dest: "/tmp/backups/{{ inventory_hostname }}/{{ inventory_hostname }}.bck"
       when: ansible_network_os == 'ios'
-  
-#     - debug: var=inventory_hostname
-#     - debug: var=ansible_hostname
-#     - debug: var=hostvars
     
