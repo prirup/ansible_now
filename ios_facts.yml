@@ -1,5 +1,5 @@
 ---
-- name:cisco_ios_facts_gather_with_filters
+- name: cisco_ios_facts_gather_with_filters
   hosts: cisco
   gather_facts: false
   connection: network_cli
