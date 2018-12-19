@@ -25,5 +25,4 @@
       copy:
         src: "{{ backup_ios_location.backup_path }}"
         dest: "/tmp/backups/{{ inventory_hostname }}/{{ inventory_hostname }}.bck"
-      when: ansible_network_os == 'ios'
     
