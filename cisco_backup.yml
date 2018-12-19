@@ -31,3 +31,4 @@
     - debug: var=inventory_hostname
     - debug: var=ansible_hostname
     - debug: var=hostvars
+    
