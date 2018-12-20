@@ -18,7 +18,7 @@
 
     - name: Create dir
       file:
-        path: "/tmp/testing/{{ inventory_hostname }}"
+        path: "/tmp/{{ inventory_hostname }}"
         state: directory
         recurse: yes
       delegate_to: 127.0.0.1
@@ -28,4 +28,4 @@
       copy:
         # copy the value after the debug: var= to the content: "{{ <here> }}"
         content: "{{ config_facts.ansible_facts.ansible_net_hostname,config_facts.ansible_facts.ansible_net_model,config_facts.ansible_facts.ansible_net_serialnum,config_facts.ansible_facts.ansible_net_version }}"
-        dest: "/tmp/testing/{{ inventory_hostname }}/{{ inventory_hostname }}_get_facts.txt"
+        dest: "/tmp/{{ inventory_hostname }}/{{ inventory_hostname }}_get_facts.txt"
