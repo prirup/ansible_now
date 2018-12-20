@@ -17,6 +17,7 @@
     - debug: var=config_facts.ansible_facts.ansible_net_hostname,config_facts.ansible_facts.ansible_net_model,config_facts.ansible_facts.ansible_net_serialnum,config_facts.ansible_facts.ansible_net_version
 
     - name: save output to a file
+      delegate_to: 127.0.0.1
       copy:
         # copy the value after the debug: var= to the content: "{{ <here> }}"
         content: "{{ config_facts.ansible_facts.ansible_net_hostname,config_facts.ansible_facts.ansible_net_model,config_facts.ansible_facts.ansible_net_serialnum,config_facts.ansible_facts.ansible_net_version }}"
