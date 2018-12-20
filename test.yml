@@ -1,6 +1,6 @@
 ---
 - name: show_command
-  hosts: ios
+  hosts: cisco
   gather_facts: false
   connection: network_cli
 
