@@ -21,4 +21,4 @@
       copy:
         # copy the value after the debug: var= to the content: "{{ <here> }}"
         content: "{{ config_facts.ansible_facts.ansible_net_hostname,config_facts.ansible_facts.ansible_net_model,config_facts.ansible_facts.ansible_net_serialnum,config_facts.ansible_facts.ansible_net_version }}"
-        dest: "/tmp/testing/{{ inventory_hostname }}_get_facts.txt"
+        dest: "/var/lib/awx/projects/_8__get_facts/{{ inventory_hostname }}_get_facts.txt"
