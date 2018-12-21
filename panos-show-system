@@ -1,0 +1,20 @@
+---
+- hosts: paloalto
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+  
+  - name: show list of all interfaces
+  panos_op:
+    ip_address: '{{ ip_address }}'
+    username: '{{ username }}'
+    password: '{{ password }}'
+    cmd: 'show interfaces all'
+
+- name: show system info
+  panos_op:
+    ip_address: '{{ ip_address }}'
+    username: '{{ username }}'
+    password: '{{ password }}'
+    cmd: 'show system info'
