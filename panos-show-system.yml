@@ -7,7 +7,7 @@
   - name: show list of all interfaces
     panos_op:
       ip_address: '{{ ip_address }}'
-      username: '{{ username }}'
-      password: '{{ password }}'
+#       username: '{{ username }}'
+#       password: '{{ password }}'
       cmd: 'show interfaces all'
 
