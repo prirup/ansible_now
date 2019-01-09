@@ -6,7 +6,7 @@
   tasks:
   - name: show list of all interfaces
     panos_op:
-      ip_address: '{{ hosts }}'
+      ip_address: '10.57.242.56'
 #       username: '{{ username }}'
 #       password: '{{ password }}'
       cmd: 'show interfaces all'
