@@ -1,0 +1,15 @@
+---
+
+  - name: PLAY 1 - DEPLOYING SNMP CONFIGURATIONS ON IOS
+    hosts: iosxe
+    connection: network_cli
+    gather_facts: no
+
+    tasks:
+
+      - name: TASK 1 in PLAY 1 - ENSURE SNMP COMMANDS EXIST ON IOS DEVICES
+        ios_config:
+          commands:
+            - snmp-server community ccie RO
+            - snmp-server location SJC10
+            - snmp-server contact Ansible
