@@ -9,5 +9,5 @@
 
       - name: TASK 1 in PLAY 1 - ENSURE SNMP COMMANDS EXIST ON IOS DEVICES
         ios_config:
-          src: /temp/ios-snmp.cfg
+          src: /tmp/ios-snmp.cfg
 
