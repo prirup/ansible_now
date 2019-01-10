@@ -1,7 +1,7 @@
 ---
 
   - name: PLAY 1 - DEPLOYING SNMP CONFIGURATIONS ON IOS
-    hosts: iosxe
+    hosts: lab
     connection: network_cli
     gather_facts: no
 
