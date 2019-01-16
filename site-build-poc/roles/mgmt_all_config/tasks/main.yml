@@ -1,0 +1,5 @@
+---
+- name: GENERATE MGMT CONFIG
+  template:
+    src: "mgmt_all_config.j2"
+    dest: "./files/{{inventory_hostname}}_mgmt_all_config.cfg"

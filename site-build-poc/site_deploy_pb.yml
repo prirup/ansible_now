@@ -1,0 +1,26 @@
+---
+- name: PUSH MGMT CONFIG TO ALL CISCO DEVICES
+  hosts: lab
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: MGMT ALL CONFIG
+      ios_config:
+        src: ./files/{{inventory_hostname}}_mgmt_all_config.cfg
+
+      register: output_netmgmt
+    - debug: var=output_netmgmt
+
+- name: PUSH VLANS CONFIG FOR ACCESS SWITCHES
+  hosts: 10.57.242.54
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: PUSH VLANS CONFIG
+      ios_config:
+        src: ./files/{{inventory_hostname}}_access_vlans.cfg
+
+      register: output_vlans
+    - debug: var=output_vlans
