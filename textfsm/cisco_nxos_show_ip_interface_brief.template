@@ -1,4 +1,0 @@
-Value INTERFACE (\S+)
-
-Start
-  ^${INTERFACE} -> Record
