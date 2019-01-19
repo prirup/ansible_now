@@ -1,0 +1,24 @@
+---
+- name: Gather Facts
+  hosts: cisco
+  gather_facts: false
+  connection: network_cli
+  
+  tasks:
+    ###
+    # Collect data
+    #
+    - name: Gather facts (ops)
+      ios_facts:
+      when: ansible_network_os == 'ios'
+
+    ###
+    # Demonstrate variables
+    #
+    - name: Display some facts
+      debug:
+        msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+
+    - name: Facts from a specific host
+      debug:
+        var: hostvars['swal3-bldge-idf2-1']

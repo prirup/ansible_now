@@ -1,0 +1,6 @@
+logging source-interface Loopback0
+logging trap informational
+logging host {{syslog_srvr}} transport udp port 514
+service timestamps debug datetime msec localtime show-timezone year
+service timestamps log datetime msec localtime show-timezone year
+service sequence-numbers
