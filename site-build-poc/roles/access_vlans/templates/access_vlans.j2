@@ -1,7 +1,0 @@
-
-{% for vlan in vlans %}
-vlan {{ vlan.id }}
-{% if vlan.get('name') %}
- name {{ vlan.name }}
-{% endif %}
-{% endfor %}
