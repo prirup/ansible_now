@@ -1,0 +1,25 @@
+[all:vars]
+#ansible_connection = network_cli
+#ansible_network_os = iosxe
+#ansible_user=xxxx
+#ansible_ssh_pass=xxxxx
+
+[iosxe]
+#10.57.242.51  ansible_network_os=ios  ntc_device_type=3850
+10.57.242.52  ansible_network_os=ios  ntc_device_type=4451
+10.57.242.53  ansible_network_os=ios  ntc_device_type=4451
+10.57.242.54  ansible_network_os=ios  ntc_device_type=4500x
+
+[iosxe:vars]
+ntc_vendor=cisco
+ansible_network_os=ios
+ntc_device_type=Switch
+
+[AMER:children]
+iosxe
+
+
+[lab]
+10.57.242.52  ansible_network_os=ios  ntc_device_type=4451
+10.57.242.53  ansible_network_os=ios  ntc_device_type=4451
+10.57.242.54  ansible_network_os=ios  ntc_device_type=4500x
