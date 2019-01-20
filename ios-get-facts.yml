@@ -5,6 +5,24 @@
   connection: network_cli
 
   tasks:
+
+#    # Collect all facts from the device
+#    - name: Collect all facts from the device
+#      ios_facts:
+#        gather_subset: all
+#
+#    # Collect only the config and default facts
+#    - name: Collect only the config and default facts
+#      ios_facts:
+#        gather_subset:
+#        - config
+#
+#    # Do not collect hardware facts
+#    - name: Do not collect hardware facts
+#      ios_facts:
+#        gather_subset:
+#        - "!hardware"
+
     - name: gather_facts
       ios_facts:
         gather_subset:
