@@ -17,7 +17,7 @@
 
     - name: Create backup dir
       file:
-        path: "temp/{{ inventory_hostname }}"
+        path: "tmp/{{ inventory_hostname }}"
         state: directory
         recurse: yes
       delegate_to: 127.0.0.1
