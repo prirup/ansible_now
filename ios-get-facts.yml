@@ -16,6 +16,14 @@
     # Use the comma to seperate the data if you want more than one value out of the dictionary
     - debug: var=config_facts.ansible_facts.ansible_net_hostname,config_facts.ansible_facts.ansible_net_model,config_facts.ansible_facts.ansible_net_serialnum,config_facts.ansible_facts.ansible_net_version
 
+    - name: DISPLAY VERSION
+      debug:
+        msg: "The IOS version is: {{ ansible_net_version }}"
+
+    - name: DISPLAY SERIAL NUMBER
+      debug:
+        msg: "The serial number is:{{ ansible_net_serialnum }}"
+
     - name: Create dir
       file:
 #         path: "/tmp/{{ inventory_hostname }}"
