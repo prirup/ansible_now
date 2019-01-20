@@ -5,26 +5,25 @@
   connection: network_cli
   
   tasks:
-  ###
-    # Get running configuration
-    #
+    # Backup running configuration
+    # Backup stored location: /var/lib/awx/projects/_8__get_facts/backup
 
     - name: Backup switch (ios)
       ios_config:
         backup: yes
-      register: backup_ios_location
+#       register: backup_ios_location
       when: ansible_network_os == 'ios'
 
-    - name: Create backup dir
-      file:
-        path: "tmp/{{ inventory_hostname }}"
-        state: directory
-        recurse: yes
-      delegate_to: 127.0.0.1
+#     - name: Create backup dir
+#       file:
+#         path: "tmp/{{ inventory_hostname }}"
+#         state: directory
+#         recurse: yes
+#       delegate_to: 127.0.0.1
 
-    - name: Copy backup files into /tmp/backups/ (ios)
-      copy:
-        src: "{{ backup_ios_location.backup_path }}"
-        dest: "/tmp/{{ inventory_hostname }}/{{ inventory_hostname }}.bck"
-      delegate_to: 127.0.0.1
+#     - name: Copy backup files into /tmp/backups/ (ios)
+#       copy:
+#         src: "{{ backup_ios_location.backup_path }}"
+#         dest: "/tmp/{{ inventory_hostname }}/{{ inventory_hostname }}.bck"
+#       delegate_to: 127.0.0.1
     
