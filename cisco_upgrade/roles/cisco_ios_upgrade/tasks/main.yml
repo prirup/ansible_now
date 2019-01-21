@@ -53,7 +53,7 @@
     port: 465
     username: "{{ gmail_account }}"
     password: "{{ gmail_account_password }}"
-    to: Anthony Lin <anthony.lin.test@gmail.com>
+    to: Satish Reddy <saprtasr@gmail.com>
     subject: "Ansible Report"
     body: "{{ inventory_hostname }} has been upgraded with new boot image {{ new_system_image }}"
   delegate_to: localhost

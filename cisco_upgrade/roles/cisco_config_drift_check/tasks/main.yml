@@ -105,9 +105,9 @@
   mail:
     host: smtp.gmail.com
     port: 465
-    username: "{{ email_account }}"
-    password: "{{ email_account_password }}"
-    to: Anthony Lin <anthony.lin.test@gmail.com>
+    username: "{{ gmail_account }}"
+    password: "{{ gmail_account_password }}"
+    to: Satish Reddy <saprtasr@gmail.com>
     subject: "Ansible Report"
     body: "The consolidated configuration drift report for the Cisco Routers can be found in the attached file"
     attach:

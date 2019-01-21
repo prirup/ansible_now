@@ -8,4 +8,4 @@
   - name: Generate OS report
     include_role:
       name: cisco_os_report
-      vars_from: "secrets.yml"
+#      vars_from: "secrets.yml"

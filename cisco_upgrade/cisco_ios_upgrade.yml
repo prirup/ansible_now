@@ -8,4 +8,4 @@
   - name: Cisco IOS Upgrade
     include_role:
       name: cisco_ios_upgrade
-      vars_from: "secrets.yml"
+#      vars_from: "secrets.yml"

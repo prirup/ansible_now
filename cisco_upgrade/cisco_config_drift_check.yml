@@ -8,4 +8,4 @@
   - name: Check Config Drift
     include_role:
       name: cisco_config_drift_check
-      vars_from: "secrets.yml"
+#      vars_from: "secrets.yml"
