@@ -1,6 +1,6 @@
 ---
 - name: Check Cisco Router Config Drift
-  hosts: "{{ cisco_router }}"
+  hosts: lab
   connection: network_cli
   gather_facts: no
 

@@ -1,6 +1,6 @@
 ---
 - name: Cisco Pre-Upgrade Actions
-  hosts: 10.57.242.53
+  hosts: lab
   connection: network_cli
   gather_facts: no
 
