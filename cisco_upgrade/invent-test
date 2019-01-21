@@ -1,5 +1,5 @@
 [cisco]
-cisco_csr1 ansible_host=172.16.100.205
+cisco_csr1 ansible_host=1.1.1.1
 
 [cisco:vars]
 ansible_connection=network_cli
