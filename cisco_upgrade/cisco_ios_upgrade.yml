@@ -1,6 +1,6 @@
 ---
 - name: Cisco IOS Upgrade
-  hosts: lab
+  hosts: "{{ cisco_router }}"
   connection: network_cli
   gather_facts: no
 

@@ -1,6 +1,6 @@
 ---
 - name: Cisco Post Upgrade Verification Checks
-  hosts: lab
+  hosts: "{{ cisco_router }}"
   connection: network_cli
   gather_facts: no
 

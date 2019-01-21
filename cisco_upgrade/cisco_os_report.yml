@@ -1,6 +1,6 @@
 ---
 - name: Generate Cisco IOS OS Report
-  hosts: lab
+  hosts: "{{ cisco_router }}"
   connection: network_cli
   gather_facts: no
 
