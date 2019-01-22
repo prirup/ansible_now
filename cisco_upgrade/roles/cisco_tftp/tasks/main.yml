@@ -10,7 +10,7 @@
         prompt: 'Destination filename [{{ new_system_image }}]?'
 #         answer: "\r"
     interval: 10
-    retries: "{{ number_of_retries | int }}"
+    retries: "{{ number_of_retries }}"
     wait_for: result[0] contains OK
 
 - name: Print List of all Files and Directories in bootflash Memory 
