@@ -1,11 +1,8 @@
 ---
 - name: Ping "{{ item }}"
   ios_command:
-    commands: ping {{ item }}
+    commands: "ping {{ item }}"
   register: ping_test_results
-  debug:
-    var: ping_test_results
-
 
 - name: Set ping_test_check to pass/fail
   set_fact:
