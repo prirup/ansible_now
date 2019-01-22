@@ -15,7 +15,7 @@
 
 - name: Print List of all Files and Directories in bootflash Memory 
   ios_command:
-    commands: 'dir bootflash:'
+    commands: 'dir'
 
 - name: Set File Prompt to Quiet
   ios_config:
