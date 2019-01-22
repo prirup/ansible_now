@@ -7,7 +7,7 @@
   ios_command:
     commands:
       - command: 'copy tftp://{{ tftp_server_ip }}/jiUVXGrviH-outgoing/{{ new_system_image }} flash:'
-#         prompt: 'Destination filename [{{ new_system_image }}]?'
+        prompt: 'Destination filename [{{ new_system_image }}]?'
 #         answer: "\r"
 #     interval: 10
 #     retries: "{{ number_of_retries | int }}"
