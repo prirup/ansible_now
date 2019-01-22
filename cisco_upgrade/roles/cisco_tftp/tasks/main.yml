@@ -6,7 +6,7 @@
     ansible_command_timeout: 600
   ios_command:
     commands:
-      - command: 'copy tftp://{{ tftp_server_ip }}/{{ new_system_image }} bootflash:'
+      - command: 'copy tftp://{{ tftp_server_ip }}/xX6uW44yFC-incoming/{{ new_system_image }} flash:'
         prompt: 'Destination filename \[{{ new_system_image }}\]'
         answer: "\r"
     interval: 10
@@ -15,13 +15,13 @@
 
 - name: Print List of all Files and Directories in bootflash Memory 
   ios_command:
-    commands: 'dir bootflash:'
+    commands: 'dir'
 
 - name: Verify Image File Integrity
   vars:
     ansible_command_timeout: 60
   ios_command:
-    commands: 'verify bootflash:/{{ new_system_image }}'
+    commands: 'verify flash:/{{ new_system_image }}'
   register: image_verification_results
 
 - name: Set image_integrity_check to pass/fail
@@ -37,7 +37,7 @@
   vars:
     ansible_command_timeout: 60
   ios_command:
-    commands: 'verify /md5 bootflash:/{{ new_system_image }} {{ md5_hash }}'
+    commands: 'verify /md5 flash:/{{ new_system_image }} {{ md5_hash }}'
   register: md5_hash_verification_results
 
 - name: Set md5_hash_verification to pass/fail
