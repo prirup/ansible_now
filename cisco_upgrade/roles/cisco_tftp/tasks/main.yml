@@ -16,7 +16,7 @@
 
 - name: copy file at root dir of flash
   net_put:
-    src: "{{ tftp_server_ip }}/jiUVXGrviH-outgoing/{{ new_system_image }}"
+    src: "{{ tftp_server_ip }}/var/lib/tftpboot/jiUVXGrviH-outgoing/{{ new_system_image }}"
     protocol: sftp
     dest: "flash:/{{ new_system_image }}"
     interval: 10
