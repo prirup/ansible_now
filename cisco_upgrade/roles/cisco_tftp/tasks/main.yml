@@ -14,14 +14,30 @@
 #    retries: "{{ number_of_retries | int }}"
 #    wait_for: result[0] contains OK
 
-- name: copy file at root dir of flash
-  net_put:
-    src: "{{ tftp_server_ip }}/var/lib/tftpboot/jiUVXGrviH-outgoing/{{ new_system_image }}"
-    protocol: sftp
-    dest: "flash:/{{ new_system_image }}"
-    interval: 10
-    retries: "{{ number_of_retries | int }}"
-    wait_for: result[0] contains OK
+#- name: copy file at root dir of flash
+#  net_put:
+#    src: "{{ tftp_server_ip }}/var/lib/tftpboot/jiUVXGrviH-outgoing/{{ new_system_image }}"
+#    protocol: sftp
+#    dest: "flash:/{{ new_system_image }}"
+#    interval: 10
+#    retries: "{{ number_of_retries | int }}"
+#    wait_for: result[0] contains OK
+
+
+- name: COPY_FTP_IMAGE
+     cli_command:
+       command: 'copy tftp flash:'
+       check_all: True
+       prompt:
+         - 'Address or name of remote host'
+         - 'Source filename'
+         - 'Destination filename'
+       answer:
+         - '{{ tftp_server_ip }}'
+         - '{{ new_system_image }}'
+         - '{{ new_system_image }}'
+      vars:
+         ansible_command_timeout: 1200
 
 - name: Print List of all Files and Directories in bootflash Memory 
   ios_command:
