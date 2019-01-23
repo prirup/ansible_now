@@ -25,19 +25,19 @@
 
 
 - name: COPY_FTP_IMAGE
-    cli_command:
-      command: 'copy tftp flash:'
-      check_all: True
-      prompt:
-        - 'Address or name of remote host'
-        - 'Source filename'
-        - 'Destination filename'
-      answer:
-        - '{{ tftp_server_ip }}'
-        - '{{ new_system_image }}'
-        - '{{ new_system_image }}'
-      vars:
-        ansible_command_timeout: 1200
+  cli_command:
+    command: 'copy tftp flash:'
+    check_all: True
+    prompt:
+      - 'Address or name of remote host'
+      - 'Source filename'
+      - 'Destination filename'
+    answer:
+      - '{{ tftp_server_ip }}'
+      - '{{ new_system_image }}'
+      - '{{ new_system_image }}'
+    vars:
+      ansible_command_timeout: 1200
 
 - name: Print List of all Files and Directories in bootflash Memory 
   ios_command:
