@@ -1,0 +1,26 @@
+---
+- name: BACKUP CISCO CONFIGURATIONS
+  hosts: cisco
+  connection: network_cli
+  gather_facts: false
+
+  tasks:
+    - name: GET DATE TIME INFO
+      setup:
+      delegate_to: localhost
+      run_once: true
+
+    - name: ansible create directory with mode setting example
+      file:
+        path: /var/tmp/network-backup/{{inventory_hostname}}
+        state: directory
+        mode: "u=rwx,g=rwx,o=rwx"
+
+    - name: BACKUP THE CONFIG
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: "{{inventory_hostname}}_{{ansible_date_time.iso8601_basic_short}}.cfg"
+          dir_path: /var/tmp/network-backup/{{inventory_hostname}}
+      register: config_output
+
